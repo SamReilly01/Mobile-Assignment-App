@@ -1,7 +1,6 @@
 package com.example.assignment;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,21 +20,27 @@ public class MainActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Handle button 1 click
+                // Start TimesheetActivity when Button 1 is clicked
+                Intent intent = new Intent(MainActivity.this, TimesheetActivity.class);
+                startActivity(intent);
             }
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Handle button 2 click
+                // Start ShopActivity when Button 2 is clicked
+                Intent intent = new Intent(MainActivity.this, ShopActivity.class);
+                startActivity(intent);
             }
         });
 
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Handle button 3 click
+                // Start OurTeamActivity when Button 3 is clicked
+                Intent intent = new Intent(MainActivity.this, OurTeamActivity.class);
+                startActivity(intent);
             }
         });
     }
