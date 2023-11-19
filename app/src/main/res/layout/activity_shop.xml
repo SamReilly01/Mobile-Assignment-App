@@ -1,0 +1,297 @@
+<!-- res/layout/activity_shop.xml -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Item 1 -->
+    <RelativeLayout
+        android:id="@+id/item1Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/imageViewItem1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/stealth_driver"
+            android:scaleType="centerInside"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageViewItem1"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewItem1Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Item 1"
+                android:textSize="18sp"
+                android:gravity="top"/>
+
+            <TextView
+                android:id="@+id/textViewItem1Price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="$10.00"
+                android:textSize="16sp"
+                android:gravity="top"/>
+
+            <!-- Add to Cart Button -->
+            <Button
+                android:id="@+id/buttonAddToCart1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to Cart"
+                android:onClick="addToCart"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Item 2 -->
+    <RelativeLayout
+        android:id="@+id/item2Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/imageViewItem2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/spider_putter"
+            android:scaleType="centerInside"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageViewItem2"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewItem2Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Taylormade Spider Putter"
+                android:textSize="18sp"
+                android:gravity="top"/>
+
+            <TextView
+                android:id="@+id/textViewItem2Price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="€225.00"
+                android:textSize="16sp"
+                android:gravity="top"/>
+
+            <!-- Add to Cart Button -->
+            <Button
+                android:id="@+id/buttonAddToCart2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to Cart"
+                android:onClick="addToCart"
+                android:tag="2"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <!-- Item 3 -->
+    <RelativeLayout
+        android:id="@+id/item3Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/imageViewItem3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/g425_hybrid"
+            android:scaleType="centerInside"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageViewItem3"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewItem3Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ping G425 Hybrid"
+                android:textSize="18sp"
+                android:gravity="top"/>
+
+            <TextView
+                android:id="@+id/textViewItem3Price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="€179.99"
+                android:textSize="16sp"
+                android:gravity="top"/>
+
+            <!-- Add to Cart Button -->
+            <Button
+                android:id="@+id/buttonAddToCart3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to Cart"
+                android:onClick="addToCart"
+                android:tag="3"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Item 4 -->
+    <RelativeLayout
+        android:id="@+id/item4Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/imageViewItem4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/p770_irons"
+            android:scaleType="centerInside"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageViewItem4"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewItem4Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Taylormade P770 Iron Set"
+                android:textSize="18sp"
+                android:gravity="top"/>
+
+            <TextView
+                android:id="@+id/textViewItem4Price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="€1137.99"
+                android:textSize="16sp"
+                android:gravity="top"/>
+
+            <!-- Add to Cart Button -->
+            <Button
+                android:id="@+id/buttonAddToCart4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to Cart"
+                android:onClick="addToCart"
+                android:tag="4"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Item 5 -->
+    <RelativeLayout
+        android:id="@+id/item5Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/imageViewItem5"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/vokey_wedges"
+            android:scaleType="centerInside"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageViewItem5"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewItem5Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Titleist Vokey Wedges"
+                android:textSize="18sp"
+                android:gravity="top"/>
+
+            <TextView
+                android:id="@+id/textViewItem5Price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="€649.99"
+                android:textSize="16sp"
+                android:gravity="top"/>
+
+            <!-- Add to Cart Button -->
+            <Button
+                android:id="@+id/buttonAddToCart5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to Cart"
+                android:onClick="addToCart"
+                android:tag="5"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Item 6 -->
+    <RelativeLayout
+        android:id="@+id/item6Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/imageViewItem6"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/scotty_putter"
+            android:scaleType="centerInside"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageViewItem6"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewItem6Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Titleist Scotty Cameron Putter"
+                android:textSize="18sp"
+                android:gravity="top"/>
+
+            <TextView
+                android:id="@+id/textViewItem6Price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="€300.00"
+                android:textSize="16sp"
+                android:gravity="top"/>
+
+            <!-- Add to Cart Button -->
+            <Button
+                android:id="@+id/buttonAddToCart6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to Cart"
+                android:onClick="addToCart"
+                android:tag="6"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
