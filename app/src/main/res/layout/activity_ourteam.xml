@@ -1,0 +1,116 @@
+<!-- res/layout/activity_our_team.xml -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Team Member 1 -->
+    <RelativeLayout
+        android:id="@+id/teamMember1Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/imageViewTeamMember1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/tiger_image"
+            android:scaleType="centerInside"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageViewTeamMember1"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewTeamMember1Role"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Captain"
+                android:textSize="18sp"
+                android:gravity="top"/>
+
+            <TextView
+                android:id="@+id/textViewTeamMember1Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tiger Woods is a professional golfer with numerous achievements."
+                android:textSize="16sp"
+                android:gravity="top"/>
+
+            <!-- Buttons for Team Member 1 -->
+            <Button
+                android:id="@+id/buttonBookLesson1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book a Lesson"/>
+
+            <Button
+                android:id="@+id/buttonEmail1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Team Member 2 -->
+    <RelativeLayout
+        android:id="@+id/teamMember2Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/imageViewTeamMember2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/minwoo_image"
+            android:scaleType="centerInside"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageViewTeamMember2"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewTeamMember2Role"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coach"
+                android:textSize="18sp"
+                android:gravity="top"/>
+
+            <TextView
+                android:id="@+id/textViewTeamMember2Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Min Woo Lee provides valuable coaching to the team."
+                android:textSize="16sp"
+                android:gravity="top"/>
+
+            <!-- Buttons for Team Member 2 -->
+            <Button
+                android:id="@+id/buttonBookLesson2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book a Lesson"/>
+
+            <Button
+                android:id="@+id/buttonEmail2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Add more team members as needed -->
+
+</LinearLayout>
