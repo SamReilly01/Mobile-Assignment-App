@@ -22,7 +22,7 @@
         android:textColorHint="@color/black"
         android:textSize="15mm"
         android:textAlignment="center"
-        android:hint="Please writew your name, your tee time and number of players"
+        android:hint="Please write your name, your tee time and number of players"
         android:layout_below="@id/challengeOfTheDay"
         android:layout_marginTop="22dp"
         android:inputType="textMultiLine"
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save Entry"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_below="@id/journalEntry"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
@@ -52,9 +52,29 @@
         android:id="@+id/viewEntriesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View Your Tee Times"
+        android:text="View Tee Times"
         android:layout_below="@id/lastSavedTime"
         android:layout_centerHorizontal="true"/>
 
+    <TextView
+        android:id="@+id/pleasePayText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please pay at the course when you arrive"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_below="@id/viewEntriesButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Picture section -->
+    <ImageView
+        android:id="@+id/cardsImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cards"
+        android:scaleType="fitCenter"
+        android:layout_below="@id/pleasePayText"
+        android:layout_marginTop="8dp"/>
 
 </RelativeLayout>
