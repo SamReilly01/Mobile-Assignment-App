@@ -1,78 +1,60 @@
-<!-- res/layout/activity_timesheet.xml -->
-
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TimesheetActivity">
+    android:padding="16dp">
 
-    <!-- User Input Section -->
-    <LinearLayout
-        android:id="@+id/userInputSection"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <!-- Name EditText -->
-        <EditText
-            android:id="@+id/editTextName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Your Name"
-            android:inputType="textPersonName"
-            android:padding="10dp"/>
-
-        <!-- Time EditText -->
-        <EditText
-            android:id="@+id/editTextTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Preferred Time"
-            android:inputType="text"
-            android:padding="10dp"/>
-
-        <!-- Players EditText -->
-        <EditText
-            android:id="@+id/editTextPlayers"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Number of Players"
-            android:inputType="number"
-            android:padding="10dp"/>
-
-        <!-- Submit Button -->
-        <Button
-            android:id="@+id/buttonSubmit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Submit"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:padding="10dp"/>
-    </LinearLayout>
-
-    <!-- Available Times Section -->
     <TextView
-        android:id="@+id/textViewAvailableTimes"
-        android:layout_width="match_parent"
+        android:id="@+id/challengeOfTheDay"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/userInputSection"
-        android:layout_marginTop="20dp"
-        android:padding="16dp"
-        android:text="Available Times Will Be Displayed Here"
-        android:textSize="16sp"/>
+        android:textColor="@color/black"
+        android:textSize="15mm"
+        android:textAlignment="center"
+        android:text="Tee Time Booking System"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
-    <!-- Image at the bottom -->
-    <ImageView
-        android:id="@+id/imageViewBottom"
+    <EditText
+        android:id="@+id/journalEntry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewAvailableTimes"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/timesheet_image"
-        android:scaleType="centerCrop" />
+        android:textColorHint="@color/black"
+        android:textSize="15mm"
+        android:textAlignment="center"
+        android:hint="Please writew your name, your tee time and number of players"
+        android:layout_below="@id/challengeOfTheDay"
+        android:layout_marginTop="22dp"
+        android:inputType="textMultiLine"
+        android:minHeight="150dp" />
+
+    <Button
+        android:id="@+id/saveEntryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Entry"
+        android:textColor="@color/black"
+        android:layout_below="@id/journalEntry"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/lastSavedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last save time will appear here"
+        android:textColor="@color/white"
+        android:layout_below="@id/saveEntryButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/viewEntriesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Your Tee Times"
+        android:layout_below="@id/lastSavedTime"
+        android:layout_centerHorizontal="true"/>
+
 
 </RelativeLayout>

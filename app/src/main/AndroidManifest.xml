@@ -42,6 +42,12 @@
             <!-- No intent-filter is needed for additional activities -->
         </activity>
 
+        <activity
+            android:name=".JournalEntriesActivity"
+            android:exported="true">
+            <!-- No intent-filter is needed for additional activities -->
+        </activity>
+
     </application>
 
 </manifest>
