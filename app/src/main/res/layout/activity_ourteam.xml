@@ -1,4 +1,4 @@
-<!-- res/layout/activity_our_team.xml -->
+<!-- res/layout/activity_ourteam.xml -->
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -44,18 +44,13 @@
                 android:textSize="16sp"
                 android:gravity="top"/>
 
-            <!-- Buttons for Team Member 1 -->
-            <Button
-                android:id="@+id/buttonBookLesson1"
+            <!-- GPS Location for Team Member 1 -->
+            <TextView
+                android:id="@+id/textViewTeamMember1Location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Book a Lesson"/>
-
-            <Button
-                android:id="@+id/buttonEmail1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email"/>
+                android:text="Location: "
+                android:layout_marginTop="16dp"/>
         </LinearLayout>
     </RelativeLayout>
 
@@ -96,18 +91,13 @@
                 android:textSize="16sp"
                 android:gravity="top"/>
 
-            <!-- Buttons for Team Member 2 -->
-            <Button
-                android:id="@+id/buttonBookLesson2"
+            <!-- GPS Location for Team Member 2 -->
+            <TextView
+                android:id="@+id/textViewTeamMember2Location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Book a Lesson"/>
-
-            <Button
-                android:id="@+id/buttonEmail2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email"/>
+                android:text="Location: "
+                android:layout_marginTop="16dp"/>
         </LinearLayout>
     </RelativeLayout>
 

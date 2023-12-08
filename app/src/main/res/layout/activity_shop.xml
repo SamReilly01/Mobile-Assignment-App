@@ -7,6 +7,15 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Currently in Stock"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="16dp"/>
+
     <!-- Item 1 -->
     <RelativeLayout
         android:id="@+id/item1Layout"
@@ -32,7 +41,7 @@
                 android:id="@+id/textViewItem1Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Item 1"
+                android:text="Taylormade Stealth Driver"
                 android:textSize="18sp"
                 android:gravity="top"/>
 
@@ -40,7 +49,7 @@
                 android:id="@+id/textViewItem1Price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="$10.00"
+                android:text="€349.99"
                 android:textSize="16sp"
                 android:gravity="top"/>
 
@@ -49,8 +58,9 @@
                 android:id="@+id/buttonAddToCart1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add to Cart"
-                android:onClick="addToCart"/>
+                android:text="Add to Cart and Checkout"
+                android:onClick="addToCartAndCheckout"
+                android:tag="1"/>
         </LinearLayout>
     </RelativeLayout>
 
@@ -96,12 +106,11 @@
                 android:id="@+id/buttonAddToCart2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add to Cart"
-                android:onClick="addToCart"
+                android:text="Add to Cart and Checkout"
+                android:onClick="addToCartAndCheckout"
                 android:tag="2"/>
         </LinearLayout>
     </RelativeLayout>
-
 
     <!-- Item 3 -->
     <RelativeLayout
@@ -145,8 +154,8 @@
                 android:id="@+id/buttonAddToCart3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add to Cart"
-                android:onClick="addToCart"
+                android:text="Add to Cart and Checkout"
+                android:onClick="addToCartAndCheckout"
                 android:tag="3"/>
         </LinearLayout>
     </RelativeLayout>
@@ -193,8 +202,8 @@
                 android:id="@+id/buttonAddToCart4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add to Cart"
-                android:onClick="addToCart"
+                android:text="Add to Cart and Checkout"
+                android:onClick="addToCartAndCheckout"
                 android:tag="4"/>
         </LinearLayout>
     </RelativeLayout>
@@ -241,8 +250,8 @@
                 android:id="@+id/buttonAddToCart5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add to Cart"
-                android:onClick="addToCart"
+                android:text="Add to Cart and Checkout"
+                android:onClick="addToCartAndCheckout"
                 android:tag="5"/>
         </LinearLayout>
     </RelativeLayout>
@@ -289,8 +298,8 @@
                 android:id="@+id/buttonAddToCart6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add to Cart"
-                android:onClick="addToCart"
+                android:text="Add to Cart and Checkout"
+                android:onClick="addToCartAndCheckout"
                 android:tag="6"/>
         </LinearLayout>
     </RelativeLayout>

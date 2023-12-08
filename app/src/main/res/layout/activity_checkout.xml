@@ -1,0 +1,67 @@
+<!-- res/layout/activity_checkout.xml -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/checkoutTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Checkout"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Card Number Input -->
+    <EditText
+        android:id="@+id/cardNumberInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Card Number"
+        android:layout_below="@id/checkoutTitle"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Card Expiry Date Input -->
+    <EditText
+        android:id="@+id/cardExpiryInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Card Expiry Date"
+        android:layout_below="@id/cardNumberInput"
+        android:layout_marginTop="16dp"/>
+
+    <!-- CVC Number Input -->
+    <EditText
+        android:id="@+id/cvcInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="CVC"
+        android:layout_below="@id/cardExpiryInput"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Pay Button -->
+    <Button
+        android:id="@+id/payButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pay"
+        android:layout_below="@id/cvcInput"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:onClick="pay"/>
+
+    <!-- Thank You Message -->
+    <TextView
+        android:id="@+id/thankYouMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/payButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+</RelativeLayout>

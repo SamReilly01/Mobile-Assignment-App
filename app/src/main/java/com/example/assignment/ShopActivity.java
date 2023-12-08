@@ -1,7 +1,10 @@
 package com.example.assignment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,6 +40,18 @@ public class ShopActivity extends AppCompatActivity {
                 R.drawable.scotty_putter, "Titleist Scotty Cameron Putter", "€300.00");
     }
 
+    // Handle the "Checkout" button click
+    public void addToCartAndCheckout(View view) {
+        // Extract the item ID from the button's tag
+        int itemId = Integer.parseInt(view.getTag().toString());
+
+        // You can now perform actions based on the item ID if needed
+
+        // Direct the user to the checkout page
+        Intent intent = new Intent(this, CheckoutActivity.class);
+        startActivity(intent);
+    }
+
     private void displayItem(int imageViewId, int nameTextViewId, int priceTextViewId,
                              int imageResource, String itemName, String itemPrice) {
         ImageView imageView = findViewById(imageViewId);
@@ -46,5 +61,6 @@ public class ShopActivity extends AppCompatActivity {
         imageView.setImageResource(imageResource);
         nameTextView.setText(itemName);
         priceTextView.setText(itemPrice);
+
     }
 }

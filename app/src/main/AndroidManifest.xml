@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.assignment">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -44,6 +47,12 @@
 
         <activity
             android:name=".JournalEntriesActivity"
+            android:exported="true">
+            <!-- No intent-filter is needed for additional activities -->
+        </activity>
+
+        <activity
+            android:name=".CheckoutActivity"
             android:exported="true">
             <!-- No intent-filter is needed for additional activities -->
         </activity>
