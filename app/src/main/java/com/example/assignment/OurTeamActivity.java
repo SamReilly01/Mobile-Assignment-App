@@ -1,12 +1,14 @@
 package com.example.assignment;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,21 +40,46 @@ public class OurTeamActivity extends AppCompatActivity {
         ImageView imageViewTeamMember1 = findViewById(R.id.imageViewTeamMember1);
         TextView textViewTeamMember1Role = findViewById(R.id.textViewTeamMember1Role);
         TextView textViewTeamMember1Description = findViewById(R.id.textViewTeamMember1Description);
+        Button buttonBookLesson1 = findViewById(R.id.buttonBookLesson1);
 
         // Replace the placeholder content with actual data
         imageViewTeamMember1.setImageResource(R.drawable.tiger_image);
         textViewTeamMember1Role.setText("Tiger Woods - Head Golf Professional");
         textViewTeamMember1Description.setText("Tiger, resident Head Golf Professional since October 2016, was awarded PGA Fellow status in 2013. Tiger has earned a fine reputation as a player, teacher, and retailer over the last two decades. His simple approach to coaching makes him very popular with golfers of all levels. Tiger won the PGA Irish region Order of Merit in 2001 and was a member of the 2000, 2003, and 2007 PGA Cup teams.");
 
+        // Set click listener for Book a Lesson Button for Team Member 1
+        buttonBookLesson1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Implement the logic for booking a lesson for Team Member 1
+                openLessonBookingActivity();
+            }
+        });
+
         // Team Member 2
         ImageView imageViewTeamMember2 = findViewById(R.id.imageViewTeamMember2);
         TextView textViewTeamMember2Role = findViewById(R.id.textViewTeamMember2Role);
         TextView textViewTeamMember2Description = findViewById(R.id.textViewTeamMember2Description);
+        Button buttonBookLesson2 = findViewById(R.id.buttonBookLesson2);
 
         // Replace the placeholder content with actual data
         imageViewTeamMember2.setImageResource(R.drawable.minwoo_image);
         textViewTeamMember2Role.setText("Min Woo Lee - Assistant Golf Professional");
         textViewTeamMember2Description.setText("Min Woo is a qualified PGA Professional having played full time on the PGA EuroPro Tour and Irish PGA Region. The experience and knowledge he has gained from his time on these tours are seen as an asset to assist in his coaching, custom fitting, and customer services. Min Woo’s approach to coaching is teaching by means of guided understanding in achieving students' goals and ambitions.");
+
+        // Set click listener for Book a Lesson Button for Team Member 2
+        buttonBookLesson2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Implement the logic for booking a lesson for Team Member 2
+                openLessonBookingActivity();
+            }
+        });
+    }
+
+    private void openLessonBookingActivity() {
+        Intent intent = new Intent(this, LessonBookingActivity.class);
+        startActivity(intent);
     }
 
     private void initLocation() {
@@ -69,13 +96,7 @@ public class OurTeamActivity extends AppCompatActivity {
 
     private void updateLocationForTeamMember(int locationTextViewId) {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+            // TODO: Handle the case where the user doesn't have the required permissions
             return;
         }
         fusedLocationClient.getLastLocation()
@@ -83,7 +104,7 @@ public class OurTeamActivity extends AppCompatActivity {
                     if (location != null) {
                         // Display the latitude and longitude in the specified TextView
                         TextView locationTextView = findViewById(locationTextViewId);
-                        locationTextView.setText(String.format("Latitude: %s\nLongitude: %s", location.getLatitude(), location.getLongitude()));
+                        locationTextView.setText(String.format("Location: Latitude %s, Longitude %s", location.getLatitude(), location.getLongitude()));
                     }
                 });
     }
@@ -97,6 +118,7 @@ public class OurTeamActivity extends AppCompatActivity {
                 initLocation();
             } else {
                 // Permission denied, handle accordingly (e.g., show a message)
+                Toast.makeText(this, "Location permission denied. Some features may not work.", Toast.LENGTH_SHORT).show();
             }
         }
     }

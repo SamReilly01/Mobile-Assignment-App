@@ -57,6 +57,12 @@
             <!-- No intent-filter is needed for additional activities -->
         </activity>
 
+        <activity
+            android:name=".LessonBookingActivity"
+            android:exported="true">
+            <!-- No intent-filter is needed for additional activities -->
+        </activity>
+
     </application>
 
 </manifest>
