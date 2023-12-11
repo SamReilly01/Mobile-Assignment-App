@@ -1,5 +1,6 @@
 package com.example.assignment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,9 +22,8 @@ public class LessonBookingActivity extends AppCompatActivity {
     private Spinner spinnerTeamMember;
     private ListView listViewAvailableTimes;
     private Button buttonBookLesson;
-
-    private List<String> generatedTimesTeam1; // Store the generated times for Team Member 1
-    private List<String> generatedTimesTeam2; // Store the generated times for Team Member 2
+    private Button buttonHome;
+    private Button buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,26 +33,21 @@ public class LessonBookingActivity extends AppCompatActivity {
         spinnerTeamMember = findViewById(R.id.spinnerTeamMember);
         listViewAvailableTimes = findViewById(R.id.listViewAvailableTimes);
         buttonBookLesson = findViewById(R.id.buttonBookLesson);
+        buttonHome = findViewById(R.id.buttonHome);
+        buttonBack = findViewById(R.id.buttonBack);
 
-        // Set up team member spinner
         ArrayAdapter<CharSequence> teamMemberAdapter = ArrayAdapter.createFromResource(
                 this, R.array.team_members, android.R.layout.simple_spinner_item);
         teamMemberAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTeamMember.setAdapter(teamMemberAdapter);
 
-        // Set up available times list (empty initially)
         ArrayAdapter<String> availableTimesAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_list_item_1, new ArrayList<>());
         listViewAvailableTimes.setAdapter(availableTimesAdapter);
 
-        generatedTimesTeam1 = null; // Initialize as null
-        generatedTimesTeam2 = null; // Initialize as null
-
-        // Set up event listener for team member selection
         spinnerTeamMember.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                // Update available times based on selected team member
                 updateAvailableTimes(parentView.getItemAtPosition(position).toString());
             }
 
@@ -62,36 +57,37 @@ public class LessonBookingActivity extends AppCompatActivity {
             }
         });
 
-        // Set up event listener for book lesson button
         buttonBookLesson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Implement the logic for booking the lesson
                 bookLesson();
+            }
+        });
+
+        buttonHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LessonBookingActivity.this, MainActivity.class));
+                finish();
+            }
+        });
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
     }
 
     private void updateAvailableTimes(String selectedTeamMember) {
-        // Generate random available times only if not generated before
-        if (selectedTeamMember.equals("Tiger Woods") && generatedTimesTeam1 == null) {
-            generatedTimesTeam1 = generateRandomTimes();
-        } else if (selectedTeamMember.equals("Min Woo Lee") && generatedTimesTeam2 == null) {
-            generatedTimesTeam2 = generateRandomTimes();
-        }
-
-        // Update the list view with available times based on the selected team member
+        List<String> availableTimes = generateRandomTimes();
         ArrayAdapter<String> adapter = (ArrayAdapter<String>) listViewAvailableTimes.getAdapter();
         adapter.clear();
-        if (selectedTeamMember.equals("Tiger Woods")) {
-            adapter.addAll(generatedTimesTeam1);
-        } else if (selectedTeamMember.equals("Min Woo Lee")) {
-            adapter.addAll(generatedTimesTeam2);
-        }
+        adapter.addAll(availableTimes);
     }
 
     private List<String> generateRandomTimes() {
-        // Generate some random times (for demonstration purposes)
         List<String> times = new ArrayList<>(Arrays.asList("10:00 AM", "2:00 PM", "4:30 PM", "6:00 PM", "8:00 PM"));
         List<String> availableTimes = new ArrayList<>();
         Random random = new Random();
@@ -105,18 +101,15 @@ public class LessonBookingActivity extends AppCompatActivity {
     }
 
     private void bookLesson() {
-        // Implement the logic for booking the lesson
         String selectedTeamMember = spinnerTeamMember.getSelectedItem().toString();
         int selectedPosition = listViewAvailableTimes.getCheckedItemPosition();
 
         if (selectedPosition != ListView.INVALID_POSITION) {
             String selectedTime = (String) listViewAvailableTimes.getItemAtPosition(selectedPosition);
 
-            // Display a toast with the booking details
             String message = "Lesson booked with " + selectedTeamMember + " at " + selectedTime;
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         } else {
-            // Handle the case where no time is selected
             Toast.makeText(this, "Please select a time before booking.", Toast.LENGTH_SHORT).show();
         }
     }
