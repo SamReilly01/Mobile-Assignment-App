@@ -1,3 +1,5 @@
+// TimesheetActivity.java
+
 package com.example.assignment;
 
 import androidx.room.Room;
@@ -18,7 +20,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class TimesheetActivity extends AppCompatActivity {
 
-
     private EditText journalEntry;
     private Button saveEntryButton;
     private TextView challengeOfTheDay;
@@ -27,7 +28,8 @@ public class TimesheetActivity extends AppCompatActivity {
     private JournalEntryDatabase db;
 
     private Button viewEntriesButton;
-
+    private Button buttonHome;
+    private Button buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +40,15 @@ public class TimesheetActivity extends AppCompatActivity {
         saveEntryButton = findViewById(R.id.saveEntryButton);
         challengeOfTheDay = findViewById(R.id.challengeOfTheDay);
         lastSavedTime = findViewById(R.id.lastSavedTime);
+        viewEntriesButton = findViewById(R.id.viewEntriesButton);
+        buttonHome = findViewById(R.id.buttonHome);
+        buttonBack = findViewById(R.id.buttonBack);
 
         String todayChallenge = getDailyChallenge();
         challengeOfTheDay.setText(todayChallenge);
 
-        viewEntriesButton = findViewById(R.id.viewEntriesButton);
+        db = Room.databaseBuilder(getApplicationContext(),
+                JournalEntryDatabase.class, "journal-entry-database").build();
 
         viewEntriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,20 +57,32 @@ public class TimesheetActivity extends AppCompatActivity {
             }
         });
 
-        db = Room.databaseBuilder(getApplicationContext(),
-                JournalEntryDatabase.class, "journal-entry-database").build();
-
-
         saveEntryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveJournalEntry();
             }
         });
+
+        // Set click listener for Home Button
+        buttonHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TimesheetActivity.this, MainActivity.class));
+                finish();
+            }
+        });
+
+        // Set click listener for Back Button
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     private String getDailyChallenge() {
-
         return "Tee Time Booking System";
     }
 

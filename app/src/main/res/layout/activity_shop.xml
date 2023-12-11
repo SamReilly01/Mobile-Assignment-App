@@ -1,16 +1,39 @@
 <!-- res/layout/activity_shop.xml -->
 
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp">
+
+    <!-- Home Button -->
+    <Button
+        android:id="@+id/buttonHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Home"/>
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Back"/>
 
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/buttonHome"
+        android:textAlignment="center"
         android:text="Currently in Stock"
         android:textSize="20sp"
         android:textColor="@android:color/black"
@@ -21,6 +44,7 @@
         android:id="@+id/item1Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
         android:layout_marginBottom="16dp">
 
         <ImageView
@@ -69,6 +93,7 @@
         android:id="@+id/item2Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/item1Layout"
         android:layout_marginBottom="16dp">
 
         <ImageView
@@ -117,6 +142,7 @@
         android:id="@+id/item3Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/item2Layout"
         android:layout_marginBottom="16dp">
 
         <ImageView
@@ -165,6 +191,7 @@
         android:id="@+id/item4Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/item3Layout"
         android:layout_marginBottom="16dp">
 
         <ImageView
@@ -213,6 +240,7 @@
         android:id="@+id/item5Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/item4Layout"
         android:layout_marginBottom="16dp">
 
         <ImageView
@@ -261,6 +289,7 @@
         android:id="@+id/item6Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/item5Layout"
         android:layout_marginBottom="16dp">
 
         <ImageView
@@ -303,4 +332,4 @@
                 android:tag="6"/>
         </LinearLayout>
     </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

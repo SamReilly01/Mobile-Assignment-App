@@ -2,6 +2,7 @@
 
 package com.example.assignment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -44,6 +45,27 @@ public class CheckoutActivity extends AppCompatActivity {
                 simulatePayment(cardNumber, cardExpiry, cvc);
             }
         });
+
+        // Retrieve references to Home and Back buttons
+        Button buttonHome = findViewById(R.id.buttonHome);
+        Button buttonBack = findViewById(R.id.buttonBack);
+
+        // Set click listener for Home Button
+        buttonHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CheckoutActivity.this, MainActivity.class));
+                finish();
+            }
+        });
+
+        // Set click listener for Back Button
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     // Placeholder for payment logic
@@ -57,5 +79,4 @@ public class CheckoutActivity extends AppCompatActivity {
         TextView thankYouMessage = findViewById(R.id.thankYouMessage);
         thankYouMessage.setText("Thank you for your purchase!");
     }
-
 }

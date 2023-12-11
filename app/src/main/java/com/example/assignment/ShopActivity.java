@@ -1,3 +1,5 @@
+// ShopActivity.java
+
 package com.example.assignment;
 
 import android.content.Intent;
@@ -5,6 +7,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,6 +41,27 @@ public class ShopActivity extends AppCompatActivity {
         // Display Item 6
         displayItem(R.id.imageViewItem6, R.id.textViewItem6Name, R.id.textViewItem6Price,
                 R.drawable.scotty_putter, "Titleist Scotty Cameron Putter", "€300.00");
+
+        // Retrieve references to Home and Back buttons
+        Button buttonHome = findViewById(R.id.buttonHome);
+        Button buttonBack = findViewById(R.id.buttonBack);
+
+        // Set click listener for Home Button
+        buttonHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ShopActivity.this, MainActivity.class));
+                finish();
+            }
+        });
+
+        // Set click listener for Back Button
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     // Handle the "Checkout" button click
