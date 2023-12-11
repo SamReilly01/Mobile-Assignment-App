@@ -1,0 +1,9 @@
+<!-- res/values/arrays.xml -->
+
+<resources>
+    <string-array name="team_members">
+        <item>Tiger Woods</item>
+        <item>Min Woo Lee</item>
+        <!-- Add more team members as needed -->
+    </string-array>
+</resources>

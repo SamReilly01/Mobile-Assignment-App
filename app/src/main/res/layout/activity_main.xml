@@ -70,15 +70,4 @@
 
     </LinearLayout>
 
-    <!-- TextView to display location -->
-    <TextView
-        android:id="@+id/locationTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="16dp"
-        android:text="Location: Not available"
-        android:textSize="14sp"/>
-
 </RelativeLayout>

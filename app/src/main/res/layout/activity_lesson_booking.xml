@@ -7,6 +7,28 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Add your lesson booking form UI components here -->
+    <!-- Spinner for selecting team member -->
+    <Spinner
+        android:id="@+id/spinnerTeamMember"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:entries="@array/team_members"
+        android:prompt="@string/select_team_member"/>
 
+    <!-- ListView for displaying available times -->
+    <ListView
+        android:id="@+id/listViewAvailableTimes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="16dp"
+        android:choiceMode="singleChoice"/>
+
+    <!-- Button to confirm the lesson booking -->
+    <Button
+        android:id="@+id/buttonBookLesson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book Lesson"/>
 </LinearLayout>
