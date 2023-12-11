@@ -1,17 +1,38 @@
 <!-- res/layout/activity_ourteam.xml -->
 
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Team Member 1 -->
+    <!-- Home Button -->
+    <Button
+        android:id="@+id/buttonHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Home"/>
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Back"/>
+
     <RelativeLayout
         android:id="@+id/teamMember1Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/buttonHome"
         android:layout_marginBottom="16dp">
 
         <ImageView
@@ -67,6 +88,7 @@
         android:id="@+id/teamMember2Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/teamMember1Layout"
         android:layout_marginBottom="16dp">
 
         <ImageView
@@ -119,4 +141,4 @@
 
     <!-- Add more team members as needed -->
 
-</LinearLayout>
+</RelativeLayout>

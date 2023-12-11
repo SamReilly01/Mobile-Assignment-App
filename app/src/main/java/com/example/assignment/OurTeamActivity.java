@@ -42,7 +42,6 @@ public class OurTeamActivity extends AppCompatActivity {
         TextView textViewTeamMember1Description = findViewById(R.id.textViewTeamMember1Description);
         Button buttonBookLesson1 = findViewById(R.id.buttonBookLesson1);
 
-        // Replace the placeholder content with actual data
         imageViewTeamMember1.setImageResource(R.drawable.tiger_image);
         textViewTeamMember1Role.setText("Tiger Woods - Head Golf Professional");
         textViewTeamMember1Description.setText("Tiger, resident Head Golf Professional since October 2016, was awarded PGA Fellow status in 2013. Tiger has earned a fine reputation as a player, teacher, and retailer over the last two decades. His simple approach to coaching makes him very popular with golfers of all levels. Tiger won the PGA Irish region Order of Merit in 2001 and was a member of the 2000, 2003, and 2007 PGA Cup teams.");
@@ -62,10 +61,9 @@ public class OurTeamActivity extends AppCompatActivity {
         TextView textViewTeamMember2Description = findViewById(R.id.textViewTeamMember2Description);
         Button buttonBookLesson2 = findViewById(R.id.buttonBookLesson2);
 
-        // Replace the placeholder content with actual data
         imageViewTeamMember2.setImageResource(R.drawable.minwoo_image);
         textViewTeamMember2Role.setText("Min Woo Lee - Assistant Golf Professional");
-        textViewTeamMember2Description.setText("Min Woo is a qualified PGA Professional having played full time on the PGA EuroPro Tour and Irish PGA Region. The experience and knowledge he has gained from his time on these tours are seen as an asset to assist in his coaching, custom fitting, and customer services. Min Woo’s approach to coaching is teaching by means of guided understanding in achieving students' goals and ambitions.");
+        textViewTeamMember2Description.setText("Min Woo is a qualified PGA Professional having played full time on the PGA EuroPro Tour and Irish PGA Region. The experience and knowledge he has gained from his time on these tours are seen as an asset to assist in his coaching, custom fitting, and customer services.");
 
         // Set click listener for Book a Lesson Button for Team Member 2
         buttonBookLesson2.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +71,25 @@ public class OurTeamActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Implement the logic for booking a lesson for Team Member 2
                 openLessonBookingActivity();
+            }
+        });
+
+        // Home Button
+        Button buttonHome = findViewById(R.id.buttonHome);
+        buttonHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(OurTeamActivity.this, MainActivity.class));
+                finish();
+            }
+        });
+
+        // Back Button
+        Button buttonBack = findViewById(R.id.buttonBack);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
     }
