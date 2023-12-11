@@ -1,3 +1,5 @@
+// OurTeamActivity.java
+
 package com.example.assignment;
 
 import android.Manifest;
@@ -42,6 +44,7 @@ public class OurTeamActivity extends AppCompatActivity {
         TextView textViewTeamMember1Description = findViewById(R.id.textViewTeamMember1Description);
         Button buttonBookLesson1 = findViewById(R.id.buttonBookLesson1);
 
+        // Set details for Team Member 1
         imageViewTeamMember1.setImageResource(R.drawable.tiger_image);
         textViewTeamMember1Role.setText("Tiger Woods - Head Golf Professional");
         textViewTeamMember1Description.setText("Tiger, resident Head Golf Professional since October 2016, was awarded PGA Fellow status in 2013. Tiger has earned a fine reputation as a player, teacher, and retailer over the last two decades. His simple approach to coaching makes him very popular with golfers of all levels. Tiger won the PGA Irish region Order of Merit in 2001 and was a member of the 2000, 2003, and 2007 PGA Cup teams.");
@@ -61,6 +64,7 @@ public class OurTeamActivity extends AppCompatActivity {
         TextView textViewTeamMember2Description = findViewById(R.id.textViewTeamMember2Description);
         Button buttonBookLesson2 = findViewById(R.id.buttonBookLesson2);
 
+        // Set details for Team Member 2
         imageViewTeamMember2.setImageResource(R.drawable.minwoo_image);
         textViewTeamMember2Role.setText("Min Woo Lee - Assistant Golf Professional");
         textViewTeamMember2Description.setText("Min Woo is a qualified PGA Professional having played full time on the PGA EuroPro Tour and Irish PGA Region. The experience and knowledge he has gained from his time on these tours are seen as an asset to assist in his coaching, custom fitting, and customer services.");
@@ -94,11 +98,13 @@ public class OurTeamActivity extends AppCompatActivity {
         });
     }
 
+    // Open LessonBookingActivity
     private void openLessonBookingActivity() {
         Intent intent = new Intent(this, LessonBookingActivity.class);
         startActivity(intent);
     }
 
+    // Initialize location services
     private void initLocation() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -108,12 +114,11 @@ public class OurTeamActivity extends AppCompatActivity {
         // Team Member 2
         updateLocationForTeamMember(R.id.textViewTeamMember2Location);
 
-        // Add more code for additional team members as needed
     }
 
+    // Update the location information for a team member
     private void updateLocationForTeamMember(int locationTextViewId) {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Handle the case where the user doesn't have the required permissions
             return;
         }
         fusedLocationClient.getLastLocation()
@@ -126,6 +131,7 @@ public class OurTeamActivity extends AppCompatActivity {
                 });
     }
 
+    // Handle location permission request results
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -134,7 +140,7 @@ public class OurTeamActivity extends AppCompatActivity {
                 // Permission granted, proceed with location initialization
                 initLocation();
             } else {
-                // Permission denied, handle accordingly (e.g., show a message)
+                // Permission denied
                 Toast.makeText(this, "Location permission denied. Some features may not work.", Toast.LENGTH_SHORT).show();
             }
         }

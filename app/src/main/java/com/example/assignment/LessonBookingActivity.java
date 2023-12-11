@@ -1,3 +1,5 @@
+// LessonBookingActivity.java
+
 package com.example.assignment;
 
 import android.content.Intent;
@@ -19,6 +21,7 @@ import java.util.Random;
 
 public class LessonBookingActivity extends AppCompatActivity {
 
+    // UI elements
     private Spinner spinnerTeamMember;
     private ListView listViewAvailableTimes;
     private Button buttonBookLesson;
@@ -30,21 +33,25 @@ public class LessonBookingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson_booking);
 
+        // Initialize UI elements
         spinnerTeamMember = findViewById(R.id.spinnerTeamMember);
         listViewAvailableTimes = findViewById(R.id.listViewAvailableTimes);
         buttonBookLesson = findViewById(R.id.buttonBookLesson);
         buttonHome = findViewById(R.id.buttonHome);
         buttonBack = findViewById(R.id.buttonBack);
 
+        // Initialize ArrayAdapter for team members spinner
         ArrayAdapter<CharSequence> teamMemberAdapter = ArrayAdapter.createFromResource(
                 this, R.array.team_members, android.R.layout.simple_spinner_item);
         teamMemberAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTeamMember.setAdapter(teamMemberAdapter);
 
+        // Initialize ArrayAdapter for available times list
         ArrayAdapter<String> availableTimesAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_list_item_1, new ArrayList<>());
         listViewAvailableTimes.setAdapter(availableTimesAdapter);
 
+        // Set listener for team member spinner item selection
         spinnerTeamMember.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -57,6 +64,7 @@ public class LessonBookingActivity extends AppCompatActivity {
             }
         });
 
+        // Set listener for "Book Lesson" button click
         buttonBookLesson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +72,7 @@ public class LessonBookingActivity extends AppCompatActivity {
             }
         });
 
+        // Set listener for "Home" button click
         buttonHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +81,7 @@ public class LessonBookingActivity extends AppCompatActivity {
             }
         });
 
+        // Set listener for "Back" button click
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +90,7 @@ public class LessonBookingActivity extends AppCompatActivity {
         });
     }
 
+    // Update the available times based on the selected team member
     private void updateAvailableTimes(String selectedTeamMember) {
         List<String> availableTimes = generateRandomTimes();
         ArrayAdapter<String> adapter = (ArrayAdapter<String>) listViewAvailableTimes.getAdapter();
@@ -87,6 +98,7 @@ public class LessonBookingActivity extends AppCompatActivity {
         adapter.addAll(availableTimes);
     }
 
+    // Generate a random list of available times
     private List<String> generateRandomTimes() {
         List<String> times = new ArrayList<>(Arrays.asList("10:00 AM", "2:00 PM", "4:30 PM", "6:00 PM", "8:00 PM"));
         List<String> availableTimes = new ArrayList<>();
@@ -100,6 +112,7 @@ public class LessonBookingActivity extends AppCompatActivity {
         return availableTimes;
     }
 
+    // Book a lesson based on the selected team member and time
     private void bookLesson() {
         String selectedTeamMember = spinnerTeamMember.getSelectedItem().toString();
         int selectedPosition = listViewAvailableTimes.getCheckedItemPosition();
@@ -107,9 +120,11 @@ public class LessonBookingActivity extends AppCompatActivity {
         if (selectedPosition != ListView.INVALID_POSITION) {
             String selectedTime = (String) listViewAvailableTimes.getItemAtPosition(selectedPosition);
 
+            // Display a toast message indicating the booked lesson
             String message = "Lesson booked with " + selectedTeamMember + " at " + selectedTime;
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         } else {
+            // Display a toast message prompting the user to select a time
             Toast.makeText(this, "Please select a time before booking.", Toast.LENGTH_SHORT).show();
         }
     }

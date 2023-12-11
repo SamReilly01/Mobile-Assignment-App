@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- AndroidManifest.xml: Configuration file for Android app -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.assignment">
+    <!-- Declare the package name for the Android application -->
 
+    <!-- Permissions required by the application -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
@@ -16,51 +20,47 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Assignment"
         tools:targetApi="31">
+        <!-- Application configuration -->
 
+        <!-- Main activity of the application -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <!-- Additional activities of the application -->
         <activity
             android:name=".TimesheetActivity"
             android:exported="true">
-            <!-- No intent-filter is needed for additional activities -->
         </activity>
 
         <activity
             android:name=".ShopActivity"
             android:exported="true">
-            <!-- No intent-filter is needed for additional activities -->
         </activity>
 
         <activity
             android:name=".OurTeamActivity"
             android:exported="true">
-            <!-- No intent-filter is needed for additional activities -->
         </activity>
 
         <activity
             android:name=".JournalEntriesActivity"
             android:exported="true">
-            <!-- No intent-filter is needed for additional activities -->
         </activity>
 
         <activity
             android:name=".CheckoutActivity"
             android:exported="true">
-            <!-- No intent-filter is needed for additional activities -->
         </activity>
 
         <activity
             android:name=".LessonBookingActivity"
             android:exported="true">
-            <!-- No intent-filter is needed for additional activities -->
         </activity>
 
     </application>

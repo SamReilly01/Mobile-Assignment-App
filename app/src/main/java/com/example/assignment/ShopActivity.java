@@ -5,7 +5,6 @@ package com.example.assignment;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -69,13 +68,13 @@ public class ShopActivity extends AppCompatActivity {
         // Extract the item ID from the button's tag
         int itemId = Integer.parseInt(view.getTag().toString());
 
-        // You can now perform actions based on the item ID if needed
 
         // Direct the user to the checkout page
         Intent intent = new Intent(this, CheckoutActivity.class);
         startActivity(intent);
     }
 
+    // Display item details in the specified views
     private void displayItem(int imageViewId, int nameTextViewId, int priceTextViewId,
                              int imageResource, String itemName, String itemPrice) {
         ImageView imageView = findViewById(imageViewId);
@@ -85,6 +84,5 @@ public class ShopActivity extends AppCompatActivity {
         imageView.setImageResource(imageResource);
         nameTextView.setText(itemName);
         priceTextView.setText(itemPrice);
-
     }
 }

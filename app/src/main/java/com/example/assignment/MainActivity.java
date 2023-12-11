@@ -1,3 +1,5 @@
+// MainActivity.java
+
 package com.example.assignment;
 
 import android.content.Intent;
@@ -13,10 +15,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Initialize buttons
         Button button1 = findViewById(R.id.button1);
         Button button2 = findViewById(R.id.button2);
         Button button3 = findViewById(R.id.button3);
 
+        // Set click listener for Button 1
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Set click listener for Button 2
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Set click listener for Button 3
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

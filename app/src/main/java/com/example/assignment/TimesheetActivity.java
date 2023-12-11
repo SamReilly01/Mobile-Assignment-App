@@ -20,22 +20,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class TimesheetActivity extends AppCompatActivity {
 
+    // UI elements
     private EditText journalEntry;
     private Button saveEntryButton;
     private TextView challengeOfTheDay;
     private TextView lastSavedTime;
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-    private JournalEntryDatabase db;
-
     private Button viewEntriesButton;
     private Button buttonHome;
     private Button buttonBack;
+
+    // Date format for timestamp
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+
+    // Room Database instance
+    private JournalEntryDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timesheet);
 
+        // Initialize UI elements
         journalEntry = findViewById(R.id.journalEntry);
         saveEntryButton = findViewById(R.id.saveEntryButton);
         challengeOfTheDay = findViewById(R.id.challengeOfTheDay);
@@ -44,12 +49,15 @@ public class TimesheetActivity extends AppCompatActivity {
         buttonHome = findViewById(R.id.buttonHome);
         buttonBack = findViewById(R.id.buttonBack);
 
+        // Set Title Text
         String todayChallenge = getDailyChallenge();
         challengeOfTheDay.setText(todayChallenge);
 
+        // Initialize Room Database
         db = Room.databaseBuilder(getApplicationContext(),
                 JournalEntryDatabase.class, "journal-entry-database").build();
 
+        // Set click listener for "View Entries" Button
         viewEntriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +65,7 @@ public class TimesheetActivity extends AppCompatActivity {
             }
         });
 
+        // Set click listener for "Save Entry" Button
         saveEntryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,23 +91,29 @@ public class TimesheetActivity extends AppCompatActivity {
         });
     }
 
+    // Set title
     private String getDailyChallenge() {
         return "Tee Time Booking System";
     }
 
+    // Save the entered journal entry to the database
     private void saveJournalEntry() {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                // Get entry text and current time
                 String entryText = journalEntry.getText().toString();
                 Date currentTime = new Date();
 
+                // Create a new JournalEntry object
                 JournalEntry entry = new JournalEntry();
                 entry.entryText = entryText;
                 entry.timestamp = currentTime;
 
+                // Insert the entry into the database
                 db.journalEntryDAO().insert(entry);
 
+                // Update UI on the main thread
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -110,6 +125,7 @@ public class TimesheetActivity extends AppCompatActivity {
         }).start();
     }
 
+    // Navigate to the JournalEntriesActivity
     private void navigateToJournalEntriesList() {
         Intent intent = new Intent(TimesheetActivity.this, JournalEntriesActivity.class);
         startActivity(intent);

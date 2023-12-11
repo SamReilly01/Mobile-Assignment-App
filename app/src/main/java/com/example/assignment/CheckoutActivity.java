@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CheckoutActivity extends AppCompatActivity {
 
+    // EditText fields for card information
     private EditText cardNumberInput;
     private EditText cardExpiryInput;
     private EditText cvcInput;
@@ -27,7 +28,6 @@ public class CheckoutActivity extends AppCompatActivity {
         cardExpiryInput = findViewById(R.id.cardExpiryInput);
         cvcInput = findViewById(R.id.cvcInput);
 
-        // Display a message indicating that the checkout page is under construction
         TextView checkoutTitle = findViewById(R.id.checkoutTitle);
         checkoutTitle.setText("Checkout");
 
@@ -41,7 +41,7 @@ public class CheckoutActivity extends AppCompatActivity {
                 String cardExpiry = cardExpiryInput.getText().toString();
                 String cvc = cvcInput.getText().toString();
 
-                // Placeholder for payment logic
+                // Payment
                 simulatePayment(cardNumber, cardExpiry, cvc);
             }
         });
@@ -54,6 +54,7 @@ public class CheckoutActivity extends AppCompatActivity {
         buttonHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Navigate to the main activity
                 startActivity(new Intent(CheckoutActivity.this, MainActivity.class));
                 finish();
             }
@@ -63,14 +64,14 @@ public class CheckoutActivity extends AppCompatActivity {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Handle the back button press
                 onBackPressed();
             }
         });
     }
 
-    // Placeholder for payment logic
+    // Payment Logic
     private void simulatePayment(String cardNumber, String cardExpiry, String cvc) {
-        // Here, you would typically integrate with a payment gateway
 
         // For now, let's display a toast message indicating successful payment
         Toast.makeText(this, "Payment successful!", Toast.LENGTH_SHORT).show();
